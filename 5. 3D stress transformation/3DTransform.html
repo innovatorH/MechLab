@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen'
+        href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC2/core.css">
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="./mystyle.css">
+    <title>Calculator with PyScript</title>
+
+</head>
+
+<body>
+
+    <py-config>
+        packages=["matplotlib", "numpy"]
+    </py-config>
+
+    <header class="header_css">
+    <button  class="wtf"><a href="../index.html" class="home-button">Home! 🏛️</a></button>
+
+        <h1>A responsive web App using python
+            <span>3D Stress Transformation!</span>
+        </h1> <br>
+        <p>⚠️ The site is in beta version, so if you encounter any issues, please let us know ❗</p>
+    </header>
+
+    <table id="matrix_input">
+        <tr>
+            <td><input type="number" id="sigma_x" placeholder="sigma_x..." /></td>
+            <td><input type="number" id="sigma_y" placeholder="sigma_y..." /></td>
+            <td><input type="number" id="sigma_z" placeholder="sigma_z..." /></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="tau_xy" placeholder="tau_xy..." /></td>
+            <td><input type="number" id="tau_yz" placeholder="tau_yz..." /></td>
+            <td><input type="number" id="tau_xz" placeholder="tau_xz..." /></td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </table>
+
+    <div>
+        <!-- <p>Enter Young's Modulus:</p> -->
+        <input type="number" id="w" placeholder="Transformation angle...">
+        <br>
+        <!-- <p>Enter Poisson ratio:</p> -->
+        <input type="text" id="unit" placeholder="unit of stress...">
+        <br />
+
+    </div>
+
+    <div class="button-group">
+        <button id="calculate" type="button" class="button is-primary" py-click="calculate">Calculate</button>
+        <button class="button is-danger" py-click="clear">Reset</button>
+    </div>
+
+    <!-- <p>Answer:</p> -->
+
+    <table id="output_answer">
+        <tr>
+            <td id="">Stress Invariant, I1</td>
+            <td id="">Stress Invariant, I2</td>
+            <td id="">Stress Invariant, I3</td>
+        </tr>
+        <tr>
+            <td id="outputOne"></td>
+            <td id="outputwo"></td>
+            <td id="outputhree"></td>
+            <br>
+        </tr>
+    </table>
+
+    <!-- <div id="titles">
+        <div id="stress_titles"><strong id="stress_title"></strong></div>
+        <div id="Cosines_titles"><strong id="Cosines_title"></strong></div>
+    </div> -->
+
+    <div class="matrix" id="matrices">
+        <div id="stress_titles"><strong id="stress_title" style="color: rgb(163, 114, 219);"></strong></div>
+        <table id="output_matrix11">
+            <tr>
+                <td id="stress_xx"></td>
+                <td id="stress_xy1"></td>
+                <td id="stress_xz1"></td>
+            </tr>
+            <tr>
+                <td id="stress_yx2"></td>
+                <td id="stress_yy"></td>
+                <td id="stress_yz2"></td>
+            </tr>
+            <tr>
+                <td id="stress_zx3"></td>
+                <td id="stress_zy3"></td>
+                <td id="stress_zz"></td>
+                <br>
+            </tr>
+        </table>
+        <table id="output_matrix1">
+            <tr>
+                <td id="stress_x"></td>
+                <td id="stress_xy"></td>
+                <td id="stress_xz"></td>
+            </tr>
+            <tr>
+                <td id="stress_yx"></td>
+                <td id="stress_y"></td>
+                <td id="stress_yz"></td>
+            </tr>
+            <tr>
+                <td id="stress_zx"></td>
+                <td id="stress_zy"></td>
+                <td id="stress_z"></td>
+                <br>
+            </tr>
+        </table>
+
+        <div id="Cosines_titles"><strong id="Cosines_title" style="color: brown;"></strong></div>
+        <table id="output_matrix22">
+            <tr>
+                <td id="l11"></td>
+                <td id="m11"></td>
+                <td id="n11"></td>
+            </tr>
+            <tr>
+                <td id="l22"></td>
+                <td id="m22"></td>
+                <td id="n22"></td>
+            </tr>
+            <tr>
+                <td id="l33"></td>
+                <td id="m33"></td>
+                <td id="n33"></td>
+            </tr>
+        </table>
+        <table id="output_matrix2">
+            <tr>
+                <td id="l1"></td>
+                <td id="m1"></td>
+                <td id="n1"></td>
+            </tr>
+            <tr>
+                <td id="l2"></td>
+                <td id="m2"></td>
+                <td id="n2"></td>
+            </tr>
+            <tr>
+                <td id="l3"></td>
+                <td id="m3"></td>
+                <td id="n3"></td>
+            </tr>
+        </table>
+    </div>
+
+    <py-script src="./main.py"></py-script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Creator: Henok.D and Yohannes.S</h3>
+                <p>AASTU</p>
+            </div>
+            <div class="footer-section">
+                <p>Tulu-Dimtu, A.A, Ethiopia</p>
+            </div>
+            <div class="footer-section">
+                <p><span id="date-time"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to display current date and time
+        function displayDateTime() {
+            var dt = new Date();
+            var dateTimeString = dt.toLocaleString();
+            document.getElementById("date-time").textContent = dateTimeString;
+        }
+
+        // Call the function to display date and time
+        displayDateTime();
+    </script>
+
+</body>
+
+</html>

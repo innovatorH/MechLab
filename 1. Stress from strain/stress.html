@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen'
+        href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://pyscript.net/snapshots/2023.09.1.RC2/core.css">
+    <script type="module" src="https://pyscript.net/snapshots/2023.09.1.RC2/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="./mystyle.css">
+    <title>Calculator with PyScript</title>
+
+</head>
+
+<body>
+
+    <py-config>
+        packages=["matplotlib", "numpy"]
+    </py-config>
+    <header class="header_css">
+    <button class="wtf"><a href="../index.html" class="home-button">Home! 🏛️</a></button>
+
+        <h1>A responsive web App using python
+            <span>Stress To Strain Analyzer Tool!</span>
+        </h1> <br>
+        <p>⚠️ The site is in beta version, so if you encounter any issues, please let us know ❗</p>
+       
+    </header>
+
+    <table id="matrix_input">
+        <tr>
+            <td><input type="number" id="sigma_x" placeholder="sigma_x..." /></td>
+            <td><input type="number" id="sigma_y" placeholder="sigma_y..." /></td>
+            <td><input type="number" id="sigma_z" placeholder="sigma_z..." /></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="tau_xy" placeholder="tau_xy..." /></td>
+            <td><input type="number" id="tau_yz" placeholder="tau_yz..." /></td>
+            <td><input type="number" id="tau_xz" placeholder="tau_xz..." /></td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </table>
+
+    <div>
+        <!-- <p>Enter Young's Modulus:</p> -->
+        <input type="number" id="E" placeholder="Young's Modulus...">
+        <br>
+        <!-- <p>Enter Poisson ratio:</p> -->
+        <input type="number" id="v" placeholder="Poisson ratio...">
+        <br />
+
+    </div>
+
+    <div class="button-group">
+        <button id="calculate" type="button" class="button is-primary" py-click="calculate">Calculate</button>
+        <button class="button is-danger" py-click="clear">Reset</button>
+    </div>
+
+    <!-- <p>Answer:</p> -->
+
+    <table id="output_answer">
+        <tr>
+            <td id="">strain_x</td>
+            <td id="">strain_y</td>
+            <td id="">strain_z</td>
+        </tr>
+        <tr>
+            <td id="outputOne"></td>
+            <td id="outputwo"></td>
+            <td id="outputhree"></td>
+            <br>
+        </tr>
+        <tr>
+            <td id="">gamma_xy</td>
+            <td id="">gamma_xz</td>
+            <td id="">gamma_yz</td>
+        </tr>
+        <tr>
+            <td id="outputFour"></td>
+            <td id="outputFive"></td>
+            <td id="outputSix"></td>
+        </tr>
+    </table>
+
+    <py-script src="./main.py"></py-script>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Creator: Henok.D and Yohannes.S</h3>
+                <p>AASTU</p>
+            </div>
+            <div class="footer-section">
+                <p>Tulu-Dimtu, A.A, Ethiopia</p>
+            </div>
+            <div class="footer-section">
+                <p><span id="date-time"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to display current date and time
+        function displayDateTime() {
+            var dt = new Date();
+            var dateTimeString = dt.toLocaleString();
+            document.getElementById("date-time").textContent = dateTimeString;
+        }
+
+        // Call the function to display date and time
+        displayDateTime();
+    </script>
+
+</body>
+
+</html>
