@@ -7,7 +7,7 @@ body {
 /* === BASE HEADING === */
 
 header {
-    background-color: #333;
+    /* background-color: #333; */
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -159,6 +159,7 @@ p {
     /* Adjust as needed */
     align-items: center;
     /* Adjust as needed */
+    background-color: rgb(255, 255, 255);
 }
 
 #output_matrix1, 
@@ -176,6 +177,8 @@ p {
     /* Add padding for better spacing */
     text-align: left;
     /* Center align the cell content */
+    border-radius: 20px;
+    color: #000000;
 }
 
 #titles {
@@ -187,7 +190,7 @@ p {
     font-family: "Raleway", sans-serif;
     font-weight: 300;
     font-size: 20px;
-    color: #b82020;
+    color: #f00b0b;
     -webkit-transition: all 0.4s ease 0s;
     -o-transition: all 0.4s ease 0s;
     transition: all 0.4s ease 0s;
@@ -196,6 +199,9 @@ p {
 #output_matrix11,
 #output_matrix22 {
     margin-right: 50px;
+    border-radius: 20px;
+    color: #000000;
+    font-weight: bold;
 }
 
 #stress_titles,
@@ -203,6 +209,9 @@ p {
     border-collapse: collapse;
     /* Collapse the table borders */
     text-align: center;
+    font-weight: bold;
+    font-size: large;
+    margin: auto;
 }
 
 .button-group {
@@ -249,11 +258,14 @@ p {
     background-color: #a4d393;
     border-radius: 5px;
     margin-bottom: 70px;
+    background-color: black;
 }
 
 #output_answer td {
     border: 1px solid white;
     padding: 8px;
+    border-radius: 20px;
+    color: #000000;
 }
 
 #output_answer tr:nth-child(even) {
@@ -287,33 +299,6 @@ p {
     content: "-";
 }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 0;
-    position: relative;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    bottom: 0;
-    width: 100%;
-    z-index: 999;
-    /* Ensure footer appears above other content */
-}
-
-.footer-content {
-    max-width: 100%;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-section {
-    flex: 1;
-    margin: 5px;
-}
 
 /* Tablet and mobile styles */
 @media screen and (max-width: 768px) {

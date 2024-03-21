@@ -7,7 +7,7 @@ body {
 /* === BASE HEADING === */
 
 header {
-    background-color: #333;
+    /* background-color: #333; */
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -24,9 +24,10 @@ header {
     /* Remove underline */
     color: #e0dfdf;
     /* Adjust the color as needed */
-    margin: 10px;
+
     transition: transform 0.3s ease;
     /* Add transition effect */
+    padding: auto;
 }
 
 .home-button:hover {
@@ -101,7 +102,7 @@ h1 em {
     content: "";
     right: 45px;
     margin: auto;
-    background-color: #ccc;
+    background-color: white;
 }
 
 .header_css h1:before {
@@ -184,13 +185,15 @@ p {
 #output_answer {
     border-collapse: collapse;
     width: 50%;
-    background-color: #a4d393;
+    background-color: black;
     border-radius: 5px;
 }
 
 #output_answer td {
     border: 1px solid white;
     padding: 8px;
+    border-radius: 20px;
+    color: #000000;
 }
 
 #output_answer tr:nth-child(even) {
@@ -213,6 +216,7 @@ p {
     text-align: center;
     font-weight: normal;
     color: #000000;
+    
 }
 
 #output_answer td[id="outputOne"]:empty::before,
@@ -224,33 +228,6 @@ p {
     content: "-";
 }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 0;
-    position: relative;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    bottom: 0;
-    width: 100%;
-    z-index: 999;
-    /* Ensure footer appears above other content */
-}
-
-.footer-content {
-    max-width: 100%;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-section {
-    flex: 1;
-    margin: 5px;
-}
 
 /* Tablet and mobile styles */
 @media screen and (max-width: 768px) {
