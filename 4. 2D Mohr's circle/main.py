@@ -57,7 +57,12 @@ def calculate(*args, **kwargs):
     sigma_2 = S_avg-R
 
     #geting principal angle & shear stress angle
-    𝞱p = np.degrees(0.5 * np.arctan(2 * tau_xy/(sigma_x - sigma_y)))
+    if sigma_x == sigma_y:
+    # Handle the case when sigma_x is equal to sigma_y
+        𝞱p = 45.0  # Set 𝞱p to a default value
+    else:
+    # Calculate 𝞱p using the formula
+        𝞱p = np.degrees(0.5 * np.arctan(2 * tau_xy / (sigma_x - sigma_y)))
     𝞱s=𝞱p+45
 
     #show the graph

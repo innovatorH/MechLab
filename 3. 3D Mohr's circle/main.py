@@ -76,7 +76,12 @@ def calculate(*args, **kwargs):
 
 
     #principal angle
-    theta_p = np.degrees(0.5 * np.arctan(2 * tau_xy/(sigma_x - sigma_y)))
+    if sigma_x == sigma_y:
+    # Handle the case where sigma_x is equal to sigma_y
+        theta_p = 45.0  # Set theta_p to a default value (e.g., 45 degrees)
+    else:
+    # Calculate theta_p using the formula
+        theta_p = np.degrees(0.5 * np.arctan(2 * tau_xy / (sigma_x - sigma_y)))
 
 
     circle_1= plt.Circle((x3,0), tau13, facecolor="grey", edgecolor='r')
