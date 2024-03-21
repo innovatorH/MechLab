@@ -21,10 +21,10 @@ def calculate(*args, **kwargs):
         js.alert("Please enter values on the provided space.")
         return
     
-    if sigma_x == sigma_y or sigma_x == sigma_z or sigma_y == sigma_z:
-        print("Warning: Two or more stress components are equal. This may indicate special stress conditions.")
-        js.alert("Warning! Two or more stress components are equal. This may indicate special stress conditions. for more information refer the text books!")
-        return
+    # if sigma_x == sigma_y or sigma_x == sigma_z or sigma_y == sigma_z:
+    #     print("Warning: Two or more stress components are equal. This may indicate special stress conditions.")
+    #     js.alert("Warning! Two or more stress components are equal. This may indicate special stress conditions. for more information refer the text books!")
+    #     return
     
     sigma_x = float(sigma_x)
     sigma_y = float(sigma_y)

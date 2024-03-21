@@ -23,10 +23,11 @@ def calculate(*args, **kwargs):
         return
     
     # Check if any two input values are equal
-    if strain_x == strain_y or strain_x == strain_z or strain_y == strain_z \
-            or gamma_xy == gamma_yz or gamma_xy == gamma_xz or gamma_yz == gamma_xz:
-        print("Warning: Two or more strain or shear components are equal. This may indicate special conditions.")
-        js.alert("Warning! Two or more strain or shear components are equal. This may indicate special conditions. for more information refer the text books!")
+    # if strain_x == strain_y or strain_x == strain_z or strain_y == strain_z \
+    #         or gamma_xy == gamma_yz or gamma_xy == gamma_xz or gamma_yz == gamma_xz:
+    #     print("Warning: Two or more strain or shear components are equal. This may indicate special conditions.")
+    #     js.alert("Warning! Two or more strain or shear components are equal. This may indicate special conditions. for more information refer the text books!")
+    #     return
 
     strain_x = float(strain_x)
     strain_y = float(strain_y)
